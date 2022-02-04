@@ -1,4 +1,4 @@
-const url = 'http://80.34.34.150:3000/peliculas';
+const url = 'http://192.168.8.40:3000/api/peliculas';
 
 class Pelicula {
   constructor(nombre, director, clasificacion, id) {
@@ -46,7 +46,27 @@ function inicio() {
     .getElementById('guardarPelicula')
     .addEventListener('click', subirPelicula);
 }
-function pedirPeliculas() {}
+
+function pedirPeliculas() {
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('readystatechange', function () {
+    if (this.readyState === 4) {
+      const peliculas = JSON.parse(this.responseText);
+      peliculas.forEach(function (pelicula) {
+        const peli = new Pelicula(
+          pelicula.nombre,
+          pelicula.director,
+          pelicula.clasificacion,
+          pelicula.id
+        );
+        peli.dibujarPelicula();
+      });
+    }
+  });
+  xhr.open('GET', `${url}`);
+  xhr.send();
+}
+
 function pedirCategorias() {
   // meter las categorias en el select
 }
