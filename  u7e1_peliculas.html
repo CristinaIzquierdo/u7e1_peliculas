@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>peliculas</title>
+</head>
+
+<body>
+    <section id="botones">
+        <h2>Acciones a realizar</h2>
+        <button id="añadirPelicula">Añadir una pelicula nueva</button>
+        <form id="datosPelicula" style="visibility:hidden">
+            <div>
+                <label for="nombrePelicula">Nombre Pelicula</label>
+                <input type="text" name="nombrePelicula" />
+            </div>
+            <div>
+                <label for="director">Director</label>
+                <input type="text" name="director" />
+            </div>
+            <!-- La idea es cargar las categorias del servidor
+            Pngo una de momento por si no me da tiempo. Que será lo mas seguro-->
+            <select id="clasificacion">Categoria
+                <option value="Accion">Accion</option>
+            </select>
+            <button id="guardarPelicula">Guardar Pelicula Nueva</button>
+        </form>
+    </section>
+    <section id="peliculas">
+        <h2>PELICULAS</h2>
+        <ol id="listaPeliculas">
+            <!-- zona para mostrar las peliculas -->
+        </ol>
+    </section>
+</body>
+
+</html>
